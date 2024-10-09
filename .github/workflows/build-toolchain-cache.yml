@@ -1,5 +1,4 @@
 name: build toolchain cache
-runs-on: self-hosted
 on:
   workflow_dispatch:
     inputs:
@@ -32,7 +31,8 @@ on:
 jobs:
   build:
     name: "v${{ matrix.build_env.tag }} - ${{ matrix.build_env.pkgarch }} :: ${{ matrix.build_env.target }}/${{ matrix.build_env.subtarget }} openwrt build"
-    runs-on: ubuntu-22.04
+    #runs-on: ubuntu-22.04
+    runs-on: self-hosted
     strategy:
       matrix:
         build_env:
